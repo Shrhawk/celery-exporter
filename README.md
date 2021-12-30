@@ -114,5 +114,5 @@ celery_worker_runtime | Histogram of runtime measurements for each task | Histog
 
 ```sh
 sudo docker build -t celery_exporter .
-sudo docker run -p 9808:9808 celery-exporter --broker-url=redis://host.docker.internal:6379/0
+sudo docker run --add-host host.docker.internal:host-gateway --name celery_exporter -d -p 9808:9808 celery_exporter --broker-url=redis://host.docker.internal:6379/0
 ```
