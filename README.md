@@ -109,3 +109,10 @@ celery_task_retried_total | Sent if the task failed, but will be retried in the 
 celery_worker_up | Indicates if a worker has recently sent a heartbeat. | Gauge
 celery_worker_tasks_active | The number of tasks the worker is currently processing | Gauge
 celery_worker_runtime | Histogram of runtime measurements for each task | Histogram
+
+###Docker Build
+
+```sh
+sudo docker build -t celery_exporter .
+sudo docker run -p 9808:9808 celery-exporter --broker-url=redis://host.docker.internal:6379/0
+```

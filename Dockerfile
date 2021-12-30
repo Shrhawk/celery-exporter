@@ -1,4 +1,4 @@
-FROM python:3.9.1
+FROM arm64v8/python:3.9.1
 
 EXPOSE 9808
 
@@ -10,7 +10,7 @@ WORKDIR /app/
 
 RUN pip install poetry==1.1.4
 COPY pyproject.toml poetry.lock /app/
-RUN poetry config virtualenvs.create false && poetry install --no-interaction #!COMMIT
+RUN poetry config virtualenvs.create false && poetry add scons && poetry install --no-interaction #!COMMIT
 
 ENV PYTHONUNBUFFERED 1
 
